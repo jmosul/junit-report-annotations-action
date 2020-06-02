@@ -83,6 +83,7 @@ const fs = require('fs');
         ...github.context.repo,
         ref: github.context.sha
         }
+        
         const res = await octokit.checks.listForRef(req);
         const jobName = process.env.GITHUB_JOB
 
@@ -90,6 +91,8 @@ const fs = require('fs');
         if(!checkRun) {
             console.log(JSON.stringify(process.env))
             console.log(JSON.stringify(res.data.check_runs))
+            console.log(JSON.stringify(req));
+            console.log(JSON.stringify(res));
         }
         const check_run_id = checkRun.id
 
