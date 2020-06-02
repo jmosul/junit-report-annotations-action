@@ -89,10 +89,9 @@ const fs = require('fs');
 
         const checkRun = res.data.check_runs.find(check => check.name === jobName)
         if(!checkRun) {
-            console.log(JSON.stringify(process.env))
             console.log(JSON.stringify(res.data.check_runs))
             console.log(JSON.stringify(req));
-            console.log(JSON.stringify(res));
+            console.log(JSON.stringify(github.content));
         }
         const check_run_id = checkRun.id
 
